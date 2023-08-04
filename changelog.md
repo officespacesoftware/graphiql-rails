@@ -1,5 +1,11 @@
 # graphiql-rails
 
+## 2.0.0 (August 2023)
+
+- Update to React 18.2.0
+- Update to GraphiQL 3.0.5
+- Added GraphiQL Explorer Plugin 0.9.0
+
 ## 1.9.0
 
 ## New Features
