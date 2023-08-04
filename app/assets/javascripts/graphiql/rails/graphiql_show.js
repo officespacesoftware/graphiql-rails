@@ -68,7 +68,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
   }
 
   function GraphiQLInitializer() {
+    console.log("graphiqlContainer", graphiqlContainer)
     const [query, setQuery] = React.useState(graphiqlContainer.dataset.initialQuery || undefined)
+
+    const chatGPTPlugin = graphiqlPluginChatgpt.useChatGPTPlugin({
+      config: { provider: "openai", apiKey: 'ADD-YOUR-KEY-HERE' },
+      userId: "user1",
+      query: query,
+      onEdit: setQuery,
+    });
+
     const explorerPlugin = GraphiQLPluginExplorer.useExplorerPlugin({
       query,
       onEdit: setQuery,
@@ -78,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       query, 
       onEditQuery: setQuery, 
       defaultEditorToolsVisibility: true,
-      plugins: [explorerPlugin] 
+      plugins: [explorerPlugin, chatGPTPlugin] 
     }
 
     return React.createElement(GraphiQL, elementProps);
