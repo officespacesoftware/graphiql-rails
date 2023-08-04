@@ -69,16 +69,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   function GraphiQLInitializer() {
     const [query, setQuery] = React.useState(graphiqlContainer.dataset.initialQuery || undefined)
-    const explorerPlugin = GraphiQLPluginExplorer.useExplorerPlugin({
-      query,
-      onEdit: setQuery,
-    });
+    
+    const enabledPlugins = [];
+    
+    if (graphiqlContainer.dataset.explorerPluginEnabled === 'true') {
+      const explorerPlugin = GraphiQLPluginExplorer.useExplorerPlugin({
+        query,
+        onEdit: setQuery,
+      });
+
+      enabledPlugins.push(explorerPlugin);
+    }
 
     var elementProps = { fetcher: graphQLFetcher, 
       query, 
       onEditQuery: setQuery, 
       defaultEditorToolsVisibility: true,
-      plugins: [explorerPlugin] 
+      plugins: enabledPlugins
     }
 
     return React.createElement(GraphiQL, elementProps);
