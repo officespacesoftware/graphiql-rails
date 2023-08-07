@@ -23,13 +23,14 @@ Add the engine to `routes.rb`:
 Rails.application.routes.draw do
   # ...
   if Rails.env.development?
-    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/your/endpoint"
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/your/endpoint", explorer: "true"
   end
 end
 ```
 
 - `at:` is the path where GraphiQL will be served. You can access GraphiQL by visiting that path in your app.
 - `graphql_path:` is the path to the GraphQL endpoint. GraphiQL will send queries to this path.
+- `explorer:` if 'true' GraphiQL Explorer plugin is included. This param is not required.
 
 #### Note on API Mode
 
