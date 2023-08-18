@@ -23,6 +23,10 @@ module GraphiQL
         { params: { graphql_path: '/my/endpoint', explorer: 'true' } }
       end
 
+      def graphql_params_with_theme
+        { params: { graphql_path: '/my/endpoint', theme: 'random_theme' } }
+      end
+
       test 'renders GraphiQL' do
         get :show, **graphql_params
         assert_response(:success)
@@ -36,6 +40,13 @@ module GraphiQL
         assert_includes(@response.body, 'my/endpoint', 'it uses the provided path')
         assert_match(/application-\w+\.js/, @response.body, 'it includes assets')
         assert_includes(@response.body, 'data-explorer-plugin-enabled="true"', 'it includes the explorer')
+      end
+
+      test 'renders GraphiQL with a color theme' do
+        get :show, **graphql_params_with_theme
+        assert_response(:success)
+        assert_includes(@response.body, 'my/endpoint', 'it uses the provided path')
+        assert_match(/random_theme.css/, @response.body, 'it includes assets')
       end
 
       test 'it uses initial_query config' do

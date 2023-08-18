@@ -1,0 +1,30 @@
+button.graphiql-execute-button {
+  background-color: #209AD1;
+}
+button.graphiql-execute-button:focus {
+  outline: #0A79C9;
+}
+
+button.graphiql-execute-button:hover {
+  background-color: #0A79C9;
+}
+
+.graphiql-doc-explorer-root-type {
+  color: #0A79C9;
+}
+
+a.graphiql-doc-explorer-type-name {
+  color: #F15829;
+}
+
+.cm-s-graphiql .cm-keyword {
+  color: #F15829;
+}
+
+.cm-s-graphiql .cm-def {
+  color: #0A79C9;
+}
+
+.graphiql-dialog .graphiql-warning-text {
+  color: #F15829;
+}
