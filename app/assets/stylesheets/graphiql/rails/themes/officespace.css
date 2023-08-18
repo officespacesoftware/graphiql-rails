@@ -1,28 +1,34 @@
+:root {
+  --officespace-blue: #209AD1;
+  --officespace-blue-dark: #0A79C9;
+  --officespace-orange: #F15829;
+}
+
 button.graphiql-execute-button {
-  background-color: #209AD1;
+  background-color: var(--officespace-blue);
 }
 button.graphiql-execute-button:focus {
-  outline: #0A79C9;
+  outline: var(--officespace-blue-dark);
 }
 
 button.graphiql-execute-button:hover {
-  background-color: #0A79C9;
+  background-color: var(--officespace-blue-dark);
 }
 
 .graphiql-doc-explorer-root-type {
-  color: #0A79C9;
+  color: var(--officespace-blue-dark);
 }
 
 a.graphiql-doc-explorer-type-name {
-  color: #F15829;
+  color: var(--officespace-orange);
 }
 
 .cm-s-graphiql .cm-keyword {
-  color: #F15829;
+  color: var(--officespace-orange);
 }
 
 .cm-s-graphiql .cm-def {
-  color: #0A79C9;
+  color: var(--officespace-blue-dark);
 }
 
 .graphiql-dialog .graphiql-warning-text {
