@@ -91,4 +91,10 @@ Rails.application.routes.draw do
     mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/your/endpoint", theme: "officespace"
   end
 end
+
+# config/initializers/assets.rb
+Rails.application.config.assets.tap do |assets|
+  assets.precompile += %w(
+    graphiql/rails/themes/officespace.css
+  )
 ```
