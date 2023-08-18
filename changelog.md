@@ -1,5 +1,9 @@
 # graphiql-rails
 
+## 2.0.1 (August 2023)
+
+- Support Color themes
+
 ## 2.0.0 (August 2023)
 
 - Update to React 18.2.0
