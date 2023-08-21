@@ -1,6 +1,7 @@
 /*
  = require ./graphiql-3.0.5
  = require ./plugin-explorer-0.3.4
+ = require ./themes/officespace
 */
 
 html, body, #graphiql-container {

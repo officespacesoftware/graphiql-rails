@@ -3,11 +3,10 @@
   <head>
     <title><%= GraphiQL::Rails.config.title || 'GraphiQL' %></title>
     <%= stylesheet_link_tag("graphiql/rails/application") %>
-    <%= stylesheet_link_tag("graphiql/rails/themes/#{theme}", skip_pipeline: true  ) if theme.present? %>
     <%= javascript_include_tag("graphiql/rails/application", nonce: true )  %>
   </head>
   <body>
-    <%= content_tag :div, 'Loading...', id: 'graphiql-container', data: {
+    <%= content_tag :div, 'Loading...', id: 'graphiql-container', class: theme, data: {
           explorer_plugin_enabled: explorer_plugin_enabled,
           graphql_endpoint_path: graphql_endpoint_path,
           header_editor_enabled: GraphiQL::Rails.config.header_editor_enabled,
