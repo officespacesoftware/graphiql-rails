@@ -31,6 +31,7 @@ end
 - `at:` is the path where GraphiQL will be served. You can access GraphiQL by visiting that path in your app.
 - `graphql_path:` is the path to the GraphQL endpoint. GraphiQL will send queries to this path.
 - `explorer:` if 'true' GraphiQL Explorer plugin is included. This param is not required.
+- `theme:` name of the theme to set. This param is not required.
 
 #### Note on API Mode
 
@@ -74,3 +75,26 @@ You can override `GraphiQL::Rails.config` values in an initializer (eg, `config/
 
 - Tests: `rake test`
 - Update GraphiQL & dependencies: `rake update_graphiql`
+
+### Color Themes
+
+Param is not required.
+
+Available themes: 
+- officespace
+
+```ruby
+# config/routes.rb
+Rails.application.routes.draw do
+  # ...
+  if Rails.env.development?
+    mount GraphiQL::Rails::Engine, at: "/graphiql", graphql_path: "/your/endpoint", theme: "officespace"
+  end
+end
+
+# config/initializers/assets.rb
+Rails.application.config.assets.tap do |assets|
+  assets.precompile += %w(
+    graphiql/rails/themes/officespace.css
+  )
+```
