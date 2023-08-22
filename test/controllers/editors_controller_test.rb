@@ -46,7 +46,7 @@ module GraphiQL
         get :show, **graphql_params_with_theme
         assert_response(:success)
         assert_includes(@response.body, 'my/endpoint', 'it uses the provided path')
-        assert_match(/random_theme.css/, @response.body, 'it includes assets')
+        assert_includes(@response.body, 'class="random_theme"', 'it includes the color theme')
       end
 
       test 'it uses initial_query config' do
