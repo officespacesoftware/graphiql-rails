@@ -27,6 +27,13 @@ module GraphiQL
         { params: { graphql_path: '/my/endpoint', theme: 'random_theme' } }
       end
 
+      test 'redirects to /unauthorized path if developer_API.enable is false' do
+        FeatureManagement::Launchdarkly.stub(:[], false) do
+          get :show, **graphql_params
+          assert_redirected_to '/unauthorized'
+        end
+      end
+
       test 'renders GraphiQL' do
         get :show, **graphql_params
         assert_response(:success)

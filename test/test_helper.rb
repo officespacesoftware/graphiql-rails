@@ -7,6 +7,14 @@ require "rails/test_help"
 require "rails/generators"
 require 'minitest/mock'
 
+module FeatureManagement
+  class Launchdarkly
+    def self.[](key)
+      true
+    end
+  end
+end
+
 Rails.backtrace_cleaner.remove_silencers!
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
