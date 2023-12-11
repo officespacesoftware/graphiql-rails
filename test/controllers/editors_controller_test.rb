@@ -28,7 +28,7 @@ module GraphiQL
       end
 
       test 'redirects to /unauthorized path if developer_API.enable is false' do
-        FeatureManagement::Launchdarkly.stub(:[], false) do
+        DeveloperApi.stub(:feature_enabled?, false) do
           get :show, **graphql_params
           assert_redirected_to '/unauthorized'
         end

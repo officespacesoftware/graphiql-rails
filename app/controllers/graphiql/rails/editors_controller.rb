@@ -24,7 +24,7 @@ module GraphiQL
       end
 
       def developer_api_enabled?
-        redirect_to '/unauthorized' unless ::FeatureManagement::Launchdarkly['developer_API.enable']
+        redirect_to '/unauthorized' unless ::DeveloperApi.feature_enabled?
       end
     end
   end

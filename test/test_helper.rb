@@ -7,11 +7,9 @@ require "rails/test_help"
 require "rails/generators"
 require 'minitest/mock'
 
-module FeatureManagement
-  class Launchdarkly
-    def self.[](key)
-      true
-    end
+class DeveloperApi
+  def self.feature_enabled?
+    true
   end
 end
 
