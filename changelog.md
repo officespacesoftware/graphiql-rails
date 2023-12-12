@@ -1,5 +1,8 @@
 # graphiql-rails
 
+## 2.0.2 (December 2023)
+- Add LaunchDarkly Flag check for OSS Implementation
+
 ## 2.0.1 (August 2023)
 
 - Support Color themes

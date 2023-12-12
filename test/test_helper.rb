@@ -7,6 +7,12 @@ require "rails/test_help"
 require "rails/generators"
 require 'minitest/mock'
 
+class DeveloperApi
+  def self.feature_enabled?
+    true
+  end
+end
+
 Rails.backtrace_cleaner.remove_silencers!
 
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }

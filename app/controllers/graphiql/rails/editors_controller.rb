@@ -6,6 +6,7 @@ module GraphiQL
     # It provides helper methods for accessing the `explorer_plugin_enabled`,
     # `graphql_endpoint_path`, and `theme` parameters.
     class EditorsController < ActionController::Base
+      before_action :developer_api_enabled?
       helper_method :explorer_plugin_enabled, :graphql_endpoint_path, :theme
 
       def show; end
@@ -20,6 +21,10 @@ module GraphiQL
 
       def theme
         params[:theme]
+      end
+
+      def developer_api_enabled?
+        redirect_to '/unauthorized' unless ::DeveloperApi.feature_enabled?
       end
     end
   end
