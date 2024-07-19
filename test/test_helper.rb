@@ -8,9 +8,13 @@ require "rails/generators"
 require 'minitest/mock'
 
 class DeveloperApi
-  def self.feature_enabled?
+  def self.feature_enabled?(current_user = nil)
     true
   end
+end
+
+def current_user
+  nil
 end
 
 Rails.backtrace_cleaner.remove_silencers!
