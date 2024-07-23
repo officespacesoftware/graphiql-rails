@@ -1,5 +1,8 @@
 # graphiql-rails
 
+## 2.0.3 (July 2024)
+- Allowing OSS users to always access GraphiQL by passing current_user to DeveloperApi.feature_enabled? method
+
 ## 2.0.2 (December 2023)
 - Add LaunchDarkly Flag check for OSS Implementation
 
